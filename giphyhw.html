@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy API</title>
+</head>
+
+<body>
+ <button id="meditation-button">Meditation</button>
+ <button id="martialArts">Martial Arts</button>
+ <button id="yachts">Yachts</button>
+ <button id="flying">Flight</button>
+
+ <div id="images"></div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+var topics = ["Meditation", "Martial-Arts", "Yachts", "Squirrel-Suit"];
+//meditation image
+$("#meditation-button").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dfEIQsGKYLsrbUkTNegO7FCmNR2NbeZQ&tag=meditation"
+   
+
+
+    $.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).done(function(response) {
+
+      var imageUrl = response.data.image_original_url;
+      var meditationImage = $("<img>");
+
+      console.log(imageUrl);
+
+      meditationImage.attr("src", imageUrl);
+      meditationImage.attr("alt","meditation image");
+
+      $("#images").prepend(meditationImage);
+    });
+  });
+//martial arts button
+  $("#martialArts").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dfEIQsGKYLsrbUkTNegO7FCmNR2NbeZQ&tag=martial-arts"
+   
+
+
+    $.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).done(function(response) {
+
+      var imageUrl = response.data.image_original_url;
+      var martialImage = $("<img>");
+
+      console.log(imageUrl);
+
+      martialImage.attr("src", imageUrl);
+      martialImage.attr("alt","martial arts image");
+
+      $("#images").prepend(martialImage);
+    });
+  })
+  //yachts button
+  $("#yachts").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dfEIQsGKYLsrbUkTNegO7FCmNR2NbeZQ&tag=yachts"
+   
+
+
+    $.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).done(function(response) {
+
+      var imageUrl = response.data.image_original_url;
+      var yachtsImage = $("<img>");
+
+      console.log(imageUrl);
+
+      yachtsImage.attr("src", imageUrl);
+      yachtsImage.attr("alt","yacht image");
+
+      $("#images").prepend(yachtsImage);
+    });
+  })
+
+    //flying button
+    $("#flying").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dfEIQsGKYLsrbUkTNegO7FCmNR2NbeZQ&tag=flying"
+   
+
+
+    $.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).done(function(response) {
+
+      var imageUrl = response.data.image_original_url;
+      var flyingImage = $("<img>");
+
+      console.log(imageUrl);
+
+      flyingImage.attr("src", imageUrl);
+      flyingImage.attr("alt","flying image");
+
+      $("#images").prepend(flyingImage);
+    });
+  })
+
+
+
+
+            
+  </script>
+
+</body>
+
+</html>
